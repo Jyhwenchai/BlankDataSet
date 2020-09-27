@@ -38,10 +38,11 @@ extension UICollectionView: BlankDataSetProtocol {
         }
     }
     
-    @objc private  func swizledLayoutSubviews() {
+    @objc private func swizledLayoutSubviews() {
         swizledLayoutSubviews()
         if !fixedSafeAreaInsets {
             reloadBlankDataSet()
+            fixedSafeAreaInsets = true
         }
     }
 }
