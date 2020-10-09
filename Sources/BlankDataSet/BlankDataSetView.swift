@@ -228,6 +228,7 @@ class BlankDataSetView: UIView {
     }
     
     override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        guard let owner = owner else { return super.hitTest(point, with: event) }
         if let allowTouch = owner.blankSetDelegate?.blankDataSetShouldAllowTouch(), allowTouch {
             return super.hitTest(point, with: event)
         } else if let customView = customView, customView.frame.contains(convert(point, to: customView)) {
