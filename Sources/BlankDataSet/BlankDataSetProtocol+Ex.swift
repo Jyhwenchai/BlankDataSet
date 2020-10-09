@@ -81,7 +81,7 @@ extension BlankDataSetProtocol {
         let shouldDisplay = owner?.blankSetDelegate?.blankDataSetShouldDisplay() ?? true
         
         blankView?.isHidden = !(forcedToDisplay || shouldDisplay)
-        blankView?.isUserInteractionEnabled = owner?.blankSetDelegate?.blankDataSetShouldAllowTouch() ?? true
+//        blankView?.isUserInteractionEnabled = owner?.blankSetDelegate?.blankDataSetShouldAllowTouch() ?? true
         
         if let scrollView = self as? UIScrollView {
             scrollView.isScrollEnabled = owner?.blankSetDelegate?.blankDataSetShouldAllowScroll() ?? false

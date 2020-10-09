@@ -22,7 +22,6 @@ class CollectionViewController: UICollectionViewController {
         collectionView.blankSetDataSource = self
         collectionView.blankSetDelegate = self
         // Do any additional setup after loading the view.
-        
     }
 
     override func viewDidLayoutSubviews() {
@@ -34,26 +33,29 @@ class CollectionViewController: UICollectionViewController {
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 0
+        return 300
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-    
+        cell.backgroundColor = UIColor.red
         // Configure the cell
     
         return cell
     }
 
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("-----")
+    }
 
 }
-
+//
 extension CollectionViewController: BlankDataSetDataSource {
     
     func imageForBlankDataSet() -> UIImage? {
@@ -95,4 +97,17 @@ extension CollectionViewController: BlankDataSetDelegate {
     func blankDataSetDidTapButton() {
         print("tap button")
     }
+    
+    func blankDataSetShouldAllowScroll() -> Bool {
+        true
+    }
+    
+    func blankDataSetShouldForcedToDisplay() -> Bool {
+        false
+    }
+    
+    func blankDataSetShouldAllowTouch() -> Bool {
+        true
+    }
+    
 }

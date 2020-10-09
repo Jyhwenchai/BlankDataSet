@@ -42,7 +42,7 @@ class BlankDataSetView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         referenceView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(contentView)
-        contentView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapAction)))
+        addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapAction)))
         button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
     }
     
@@ -225,5 +225,19 @@ class BlankDataSetView: UIView {
  
     @objc func buttonAction() {
         owner.blankSetDelegate?.blankDataSetDidTapButton()
+    }
+    
+    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        if let allowTouch = owner.blankSetDelegate?.blankDataSetShouldAllowTouch(), allowTouch {
+            return super.hitTest(point, with: event)
+        } else if let customView = customView, customView.frame.contains(convert(point, to: customView)) {
+            let point = convert(point, to: customView)
+            return customView.hitTest(point, with: event)
+        } else if button.frame.contains(convert(point, to: contentView)) {
+            let point = convert(point, to: button)
+            return button.hitTest(point, with: event)
+        } else {
+            return nil
+        }
     }
 }
