@@ -76,7 +76,8 @@ extension BlankDataSetProtocol {
         
         bringSubviewToFront(blankView!)
         blankView?.setupConstraints()
-        
+        blankView?.setNeedsLayout()
+        blankView?.layoutIfNeeded()
         let forcedToDisplay = owner?.blankSetDelegate?.blankDataSetShouldForcedToDisplay() ?? false
         let shouldDisplay = owner?.blankSetDelegate?.blankDataSetShouldDisplay() ?? true
         
