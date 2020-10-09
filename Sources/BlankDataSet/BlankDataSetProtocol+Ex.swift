@@ -48,7 +48,7 @@ extension BlankDataSetProtocol {
         if owner == nil { owner = DataSetWeakOwner() }
     }
     
-    func reloadBlankDataSet() {
+    public func reloadBlankDataSet() {
 
         if let blankView = blankView {
             NSLayoutConstraint.deactivate(blankView.constraints)
