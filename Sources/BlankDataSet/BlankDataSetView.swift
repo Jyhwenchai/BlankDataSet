@@ -78,18 +78,18 @@ class BlankDataSetView: UIView {
             customView.translatesAutoresizingMaskIntoConstraints = false
             contentView.addSubview(customView)
             
-            let verticalOffset = dataSource.offsetForBlankDataSet()
             NSLayoutConstraint.activate([
                 customView.topAnchor.constraint(equalTo: contentView.topAnchor),
-                customView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: verticalOffset),
+                customView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor)
             ])
 
+            let verticalOffset = dataSource.offsetForBlankDataSet()
             NSLayoutConstraint.activate([
                 contentView.bottomAnchor.constraint(equalTo: customView.bottomAnchor),
                 contentView.centerXAnchor.constraint(equalTo: centerXAnchor),
                 contentView.leadingAnchor.constraint(equalTo: leadingAnchor),
                 contentView.trailingAnchor.constraint(equalTo: trailingAnchor),
-                contentView.centerYAnchor.constraint(equalTo: centerYAnchor)
+                contentView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: verticalOffset)
             ])
 
             return

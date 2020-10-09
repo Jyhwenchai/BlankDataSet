@@ -30,5 +30,9 @@ extension EmptyCell: BlankDataSetDataSource {
     func titleForBlankDataSet() -> BlankTextConfiguration? {
         return .normal("Click me", UIColor.red, UIFont.systemFont(ofSize: 15))
     }
+    
+    func offsetForBlankDataSet() -> CGFloat {
+        30
+    }
 }
 
