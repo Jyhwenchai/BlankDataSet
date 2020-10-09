@@ -100,7 +100,7 @@ public struct BlankButtonConfiguration {
     var size: CGSize
     
     
-    init(titleConfiguration: BlankTextConfiguration?, image: UIImage? = nil, backgroundColor: UIColor? = nil, backgroundImage: UIImage? = nil, borderWidth: CGFloat = 0, borderColor: UIColor = UIColor.clear, cornerRadius: CGFloat = 0, titleImageSpace: CGFloat = 0, size: CGSize) {
+    public init(titleConfiguration: BlankTextConfiguration?, image: UIImage? = nil, backgroundColor: UIColor? = nil, backgroundImage: UIImage? = nil, borderWidth: CGFloat = 0, borderColor: UIColor = UIColor.clear, cornerRadius: CGFloat = 0, titleImageSpace: CGFloat = 0, size: CGSize) {
         self.titleConfiguration = titleConfiguration
         self.image = image
         self.backgroundColor = backgroundColor
