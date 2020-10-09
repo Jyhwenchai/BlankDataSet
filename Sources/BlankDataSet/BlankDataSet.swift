@@ -7,8 +7,8 @@
 
 import UIKit
 
-struct BlankDataSet {
-    static func configure()  {
+public struct BlankDataSet {
+    static public func configure()  {
         UITableView.configure()
         UICollectionView.configure()
     }

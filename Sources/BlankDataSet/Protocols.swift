@@ -7,12 +7,12 @@
 
 import UIKit
 
-protocol BlankDataSetProtocol where Self: UIView {
+public protocol BlankDataSetProtocol where Self: UIView {
     var blankSetDelegate: BlankDataSetDelegate? { get set }
     var blankSetDataSource: BlankDataSetDataSource? { get set }
 }
 
-protocol BlankDataSetDataSource: NSObjectProtocol {
+public protocol BlankDataSetDataSource: NSObjectProtocol {
     
     func imageForBlankDataSet() -> UIImage?
     
@@ -33,7 +33,7 @@ protocol BlankDataSetDataSource: NSObjectProtocol {
 }
 
 
-protocol BlankDataSetDelegate: NSObjectProtocol {
+public protocol BlankDataSetDelegate: NSObjectProtocol {
     
     func blankDataSetShouldForcedToDisplay() -> Bool
     
@@ -48,7 +48,7 @@ protocol BlankDataSetDelegate: NSObjectProtocol {
     func blankDataSetDidTapButton()
 }
 
-extension BlankDataSetDataSource {
+public extension BlankDataSetDataSource {
     
     func imageForBlankDataSet() -> UIImage? { return nil }
     
@@ -68,7 +68,7 @@ extension BlankDataSetDataSource {
     
 }
 
-extension BlankDataSetDelegate {
+public extension BlankDataSetDelegate {
     func blankDataSetShouldForcedToDisplay() -> Bool { return false }
     
     func blankDataSetShouldDisplay() -> Bool { return true }
@@ -82,12 +82,12 @@ extension BlankDataSetDelegate {
     func blankDataSetDidTapButton() {}
 }
 
-enum BlankTextConfiguration {
+public enum BlankTextConfiguration {
     case normal(String, UIColor, UIFont)
     case rich(NSAttributedString)
 }
 
-struct BlankButtonConfiguration {
+public struct BlankButtonConfiguration {
     
     var titleConfiguration: BlankTextConfiguration?
     var image: UIImage?

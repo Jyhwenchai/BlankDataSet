@@ -27,7 +27,7 @@ extension BlankDataSetProtocol {
             objc_setAssociatedObject(self, &AssociatedKeys.dataSetWeakOwner, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)}
     }
     
-    var blankSetDelegate: BlankDataSetDelegate? {
+    public var blankSetDelegate: BlankDataSetDelegate? {
         get { owner?.blankSetDelegate }
         set {
             createOwner()
@@ -35,7 +35,7 @@ extension BlankDataSetProtocol {
         }
     }
     
-    var blankSetDataSource: BlankDataSetDataSource? {
+    public var blankSetDataSource: BlankDataSetDataSource? {
         get { owner?.blankSetDataSource }
         set {
             createOwner()
