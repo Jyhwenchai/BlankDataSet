@@ -22,6 +22,10 @@ class CollectionViewController: UICollectionViewController {
         collectionView.blankSetDataSource = self
         collectionView.blankSetDelegate = self
         // Do any additional setup after loading the view.
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            self.a.toggle()
+            self.collectionView.reloadData()
+        }
     }
 
     override func viewDidLayoutSubviews() {
@@ -30,10 +34,10 @@ class CollectionViewController: UICollectionViewController {
     }
     
     // MARK: UICollectionViewDataSource
-
+    var a: Bool = false
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return a ? 1 : 0
     }
 
 

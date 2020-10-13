@@ -15,18 +15,24 @@ class ViewController: UITableViewController {
         tableView.blankSetDataSource = self
         tableView.blankSetDelegate = self
         
-        
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
 
-
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-//        tableView.configBlankView()
-    }
     @IBAction func update(_ sender: Any) {
         tableView.reloadData()
     }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
+        cell?.textLabel?.text = "item \(indexPath.row)"
+        return cell!
+    }
 }
+
 
 extension ViewController: BlankDataSetDataSource {
     func imageForBlankDataSet() -> UIImage? {
@@ -73,4 +79,5 @@ extension ViewController: BlankDataSetDelegate {
     func blankDataSetDidTapButton() {
         print("tap button")
     }
+    
 }

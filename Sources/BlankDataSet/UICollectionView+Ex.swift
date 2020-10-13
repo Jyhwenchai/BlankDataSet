@@ -33,7 +33,12 @@ extension UICollectionView: BlankDataSetProtocol {
         swizzledReloadData()
         
         guard let _ = blankSetDataSource else { return }
-        if numberOfItems == 0, fixedSafeAreaInsets {
+        if fixedSafeAreaInsets {
+            if let blankSetDelegate = blankSetDelegate, !blankSetDelegate.blankDataSetShouldForcedToDisplay(), numberOfItems > 0 {
+                blankView?.removeFromSuperview()
+                blankView = nil
+                return
+            }
             reloadBlankDataSet()
         }
     }

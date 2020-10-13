@@ -18,9 +18,12 @@ extension UITableView: BlankDataSetProtocol {
     @objc private func swizzledReloadData() {
         swizzledReloadData()
         guard let _ = blankSetDataSource else { return }
-        if numberOfItems == 0 {
-            reloadBlankDataSet()
+        if let blankSetDelegate = blankSetDelegate, !blankSetDelegate.blankDataSetShouldForcedToDisplay(), numberOfItems > 0 {
+            blankView?.removeFromSuperview()
+            blankView = nil
+            return
         }
+        reloadBlankDataSet()
     }
 }
 

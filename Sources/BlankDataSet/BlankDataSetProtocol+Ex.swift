@@ -16,7 +16,7 @@ private enum AssociatedKeys {
 
 extension BlankDataSetProtocol {
 
-    private var blankView: BlankDataSetView? {
+    internal var blankView: BlankDataSetView? {
         get { objc_getAssociatedObject(self, &AssociatedKeys.blankView) as? BlankDataSetView }
         set { objc_setAssociatedObject(self, &AssociatedKeys.blankView, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)}
     }
