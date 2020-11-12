@@ -96,12 +96,13 @@ class BlankDataSetView: UIView {
         }
 
 
-        var spaces: [CGFloat] = dataSource.verticalSpacesForBlankDataSetItems().reversed()
+        var spaces: [CGFloat] = dataSource.verticalSpacesForBlankDataSetItems()
         let space: CGFloat = dataSource.verticalSpaceForBlankDataSet()
 
         while spaces.count < 3 {
             spaces.append(space)
         }
+        spaces = spaces.reversed()
 
         contentView.addSubview(referenceView)
         NSLayoutConstraint.activate([
