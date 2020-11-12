@@ -41,6 +41,10 @@ extension UICollectionView: BlankDataSetProtocol {
             }
             reloadBlankDataSet()
         }
+        
+        if let blankView = blankView {
+            sendSubviewToBack(blankView)
+        }
     }
     
     @objc private func swizledLayoutSubviews() {

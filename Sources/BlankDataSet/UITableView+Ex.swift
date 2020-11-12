@@ -24,6 +24,9 @@ extension UITableView: BlankDataSetProtocol {
             return
         }
         reloadBlankDataSet()
+        if let blankView = blankView {
+            sendSubviewToBack(blankView)
+        }
     }
 }
 

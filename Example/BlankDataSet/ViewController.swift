@@ -31,6 +31,22 @@ class ViewController: UITableViewController {
         cell?.textLabel?.text = "item \(indexPath.row)"
         return cell!
     }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = UIButton()
+        view.setTitle("heheh", for: .normal)
+        view.backgroundColor = .red
+        view.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        return view
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
+    }
+    
+    @objc func buttonAction() {
+        print("button Action")
+    }
 }
 
 
