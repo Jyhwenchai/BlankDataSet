@@ -58,7 +58,7 @@ extension BlankDataSetProtocol {
             blankView?.owner = owner
         }
 
-        addSubview(blankView!)
+        insertSubview(blankView!, at: 0)
 
         var offset: CGFloat = 0.0
         if #available(iOS 11.0, *) {
