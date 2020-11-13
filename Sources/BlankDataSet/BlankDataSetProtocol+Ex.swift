@@ -67,11 +67,16 @@ extension BlankDataSetProtocol {
             offset = bounds.minY
         }
 
+        var contentInset: UIEdgeInsets = .zero
+        if let scrollView = self as? UIScrollView {
+            contentInset = scrollView.contentInset
+        }
+        
         NSLayoutConstraint.activate([
             blankView!.widthAnchor.constraint(equalTo: widthAnchor),
             blankView!.heightAnchor.constraint(equalTo: heightAnchor),
-            blankView!.centerXAnchor.constraint(equalTo: centerXAnchor),
-            blankView!.centerYAnchor.constraint(equalTo: centerYAnchor, constant: offset)
+            blankView!.centerXAnchor.constraint(equalTo: centerXAnchor, constant: -contentInset.left),
+            blankView!.centerYAnchor.constraint(equalTo: centerYAnchor, constant: offset - contentInset.top)
         ])
         
         bringSubviewToFront(blankView!)
